@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(css/reset.css);
+        .tab_area{
+            width: 80%;
+            margin: auto;
+            margin: 50px auto;
+        }
+        .tab_title{
+            height: 40px; 
+        }
+        .tab_list_box{
+            display: flex; 
+        }
+        .tab_list{ width: 20%; height: 40px; text-align: center; line-height: 40px; 
+        }
+        .tab_list.tab_active{background-color: #eee;}
+        .tab_content_container{
+            position: relative;
+        }
+        .tab_content{
+            width: 100%;
+            position: absolute;
+            left: 0; top:0;
+            box-sizing: border-box;
+            background-color: #eee;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab_area">
+        <div class="tab_title">
+            <ul class="tab_list_box">
+                <li class="tab_list tab_active" data-tabnum='0'>타이틀1</li>
+                <li class="tab_list" data-tabnum='1'>타이틀2</li>
+                <li class="tab_list" data-tabnum='2'>타이틀3</li>
+            </ul>
+        </div>
+        <div class="tab_content_container">
+            <div class="tab_content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa asperiores officia ipsum obcaecati modi, 
+                iste veritatis ab ut voluptates sed debitis distinctio magnam enim unde dolores quod ipsam saepe atque.
+            </div>
+            <div class="tab_content">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit deleniti labore asperiores quisquam quod ab? Ipsum suscipit dolor delectus eligendi odit alias a, architecto hic reprehenderit sit corrupti? Ullam, nam.
+            </div>
+            <div class="tab_content">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, consequatur. Deserunt aliquam nesciunt, maiores accusantium atque dolore alias voluptatem repellat adipisci voluptate voluptatibus recusandae necessitatibus. Sequi vero ad dignissimos fugiat.
+            </div>
+        </div>
+    </div> 
+    <script>
+        // 인덱스 번호가 일치하면 화면에 보여주고, 일치하지 않으면 전체 off 부분으로 인해 보이지 않음.
+
+        const tabList = document.querySelectorAll('.tab_list');
+        tabList.forEach((list) => {
+            list.addEventListener('click',(e)=>{
+                const tabContent = document.querySelectorAll('.tab_content');
+                let tabNum = e.currentTarget.getAttribute('data-tabnum');
+                console.log(tabNum)
+                // 전체 off
+                tabContent.forEach((contentele,index)=> {
+                    contentele.style.display = 'none'; // 컨텐츠를 다 안보이게 한 것
+                    tabList[index].className = 'tab_list' // 탭리스트의 액티브 클래스를 다 안보이게 한다.
+                })
+                // 해당 요소만 on
+                tabContent[tabNum].style.display = 'block';
+                if(list.className.indexOf('tab_active') == -1) {   //1이 없을 때가 -1임(false 값) / 인덱스한테는 -1이 없다는 뜻임
+                    list.className = 'tab_list tab_active' // 두개 같이 집어넣어줘야 활성코드랑 기본코드가 둘다 적용된다.
+                }
+
+            }) //event
+        }) //forEach
+    </script>
+</body>
+</html>

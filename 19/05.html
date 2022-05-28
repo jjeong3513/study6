@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="img/mario/icon03.png" alt="마리오" id="img" class="imgbox" data-num='0'
+    data-name='img1'> <!--data-이름--> 
+    <script>
+        const img = document.querySelector('#img')
+        const  src = img.getAttribute('src') // 값을 가지고 올 때 사용
+        const  altTxt = img.setAttribute('alt','버섯돌이') // 새로 추가할 때 사용
+        const imgbox = img.className; // className : 선택한 오브젝트의 클래스 이름을 반환해줌
+        const databox = img.getAttribute('data-num')
+        console.log(img.dataset.num)
+        console.log(img.dataset.name)
+        
+        //coonsole.log(imgbox)
+       
+       // console.log(src)
+       // console.log(altTxt)
+    </script>
+</body>
+</html>

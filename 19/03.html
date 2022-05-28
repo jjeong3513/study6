@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{height: 150vh;}
+    </style>
+</head>
+<body>
+    <div></div>
+    <a href="#" id="link">클릭</a> <!--체크박스는 함수를 실행하게 되면 기본으로 갖고 있는 함수를 실행(빈 곳으로 가려고 하는 것)-->
+
+    <input type="checkbox" id="apple"><label for="apple">사과</label>
+
+    <script>
+        const link = document.querySelector('#link')
+        const check = document.querySelector('#apple')
+
+        check.addEventListener('click',e => {     // 매개변수가 두개 이상일 때는 () => {} 이렇게 표기하기 / e는 그냥 매개변수임
+         console.log('체킹 애플')
+         e.preventDefault(); //-> 이걸 적용해서 체크가 되는 것을 막아줌 (기본값을 방지하는 것 : preventDefault)
+        })
+
+        link.addEventListener('click',e => {  
+         console.log('체킹 링크')
+         e.preventDefault(); 
+        })
+ß
+    </script>
+</body>
+</html>
