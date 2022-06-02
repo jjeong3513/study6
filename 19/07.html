@@ -39,10 +39,10 @@
         const tabImg = document.querySelectorAll('.tabImg');
         tabTitle.addEventListener('click',e =>{
             const selectList = e.target;
-            let datatNum=selectList.dataset.num
-            //console.log(datatNum)
+            let dataNum=selectList.dataset.num
+            //console.log(dataNum)
             tabUpdate(selectList)
-            contentsUpdate(datatNum)
+            contentsUpdate(dataNum)
         })
 
         function tabUpdate(selectList){
@@ -53,12 +53,12 @@
             if(selectList){selectList.classList.add('on')}
          }
         
-         function contentsUpdate(datatNum){
+         function contentsUpdate(dataNum){
             tabImg.forEach((ele) => {
                 ele.classList.remove('on');
             })
             
-            tabImg[datatNum].classList.add('on')
+            tabImg[dataNum].classList.add('on')
          }
 
     </script>
